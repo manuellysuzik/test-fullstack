@@ -34,4 +34,4 @@ node ./init.js
 # e iniciará o node com a api
 ```
 
-### Para mais informações veja a pasta ./docs
+### PARA USO E REPLICAÇÃO NECESSÁRIA A AUTORIZAÇÃO DA WA PROJECT SOLUCOES TECNOLOGICAS LTDA
