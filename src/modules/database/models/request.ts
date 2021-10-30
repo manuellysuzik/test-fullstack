@@ -5,14 +5,14 @@ import { v4 as uuid } from 'uuid';
 import { IRequest } from '../interfaces/request';
 
 export class Request extends Model implements IRequest {
-  @ApiProperty({type: 'string'})
+  @ApiProperty({ type: 'string' })
   public id: string;
-  @ApiProperty({type: 'string'})
-  public description:string;
-  @ApiProperty({type: 'integer'})
-  public qtd:number;
-  @ApiProperty({type: 'integer'})
-  public price:number;
+  @ApiProperty({ type: 'string' })
+  public description: string;
+  @ApiProperty({ type: 'integer' })
+  public qtd: number;
+  @ApiProperty({ type: 'integer' })
+  public price: number;
   @ApiProperty({ type: 'string', format: 'date-time' })
   public createdDate: Date;
   @ApiProperty({ type: 'string', format: 'date-time' })
@@ -22,17 +22,21 @@ export class Request extends Model implements IRequest {
     return 'Request'
   }
 
-  $beforeInsert(){
+  $beforeInsert() {
     this.id = uuid()
-    console.log(uuid())
 
     this.createdDate = this.createdDate = new Date()
   }
-  $beforeUpdate(){
+  $beforeUpdate() {
     this.updatedDate = this.updatedDate = new Date()
   }
 
-  public $formatJson(data:IRequest): IRequest{
-    return data
+  public $formatDatabaseJson(json: any): any {
+    json = Model.prototype.$formatDatabaseJson.call(this, json);
+    return json;
+  }
+  public $formatJson(data: IRequest): IRequest {
+
+    return data;
   }
 };
