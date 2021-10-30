@@ -1,11 +1,11 @@
 
 
 export interface IRequest {
-  id:string
-  description:string
-  qtd:number
-  price:number
+  id?: string
+  description: string
+  qtd: number
+  price: number
 
-  createdDate?:Date
-  updatedDate?:Date
+  createdDate?: Date
+  updatedDate?: Date
 }
